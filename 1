@@ -30,36 +30,36 @@ inline bool inMap(int x, int y)
 		return false;
 	return true;
 }
-bool isWay(int x0, int y0, int x1, int y1, int color)
+bool isWay(int x0, int y0, int x1, int y1)
 {
 	if (x0 == x1 && y0 == y1)
 	{
 		return false;
 	}
-	for (int a = x0 -1; a >= 0; a--)//上面--同一列不同行找可以走到哪里
+	for (int a = x0 - 1; a >= 0; a--)//上面--同一列不同行找可以走到哪里
 	{
-		if (gridInfo[a][y0] != color || gridInfo[a][y0] != 0)
+		if (gridInfo[a][y0] != 0)
 		{
 			return false;
 		}
 	}
 	for (int a = x0 + 1; a < GRIDSIZE; a++)//下面--同一列不同行找可以走到哪里
 	{
-		if (gridInfo[a][y0] != color || gridInfo[a][y0] != 0)
+		if (gridInfo[a][y0] != 0)
 		{
 			return false;
 		}
 	}
 	for (int a = y0 - 1; a > 0; a--)//左边--同一行不同列找可以走到哪里
 	{
-		if (gridInfo[x0][a] != color || gridInfo[x0][a] != 0)
+		if (gridInfo[x0][a] != 0)
 		{
 			return false;
 		}
 	}
 	for (int a = y0 + 1; a < GRIDSIZE; a++)//右边--同一行不同列找可以走到哪里
 	{
-		if (gridInfo[x0][a] != color || gridInfo[x0][a] != 0)
+		if (gridInfo[x0][a] != 0)
 		{
 			return false;
 		}
@@ -72,7 +72,7 @@ bool isWay(int x0, int y0, int x1, int y1, int color)
 			if (a + b == 2 * right_bottom_temp)
 			{
 				right_bottom_temp += 2;
-				if (gridInfo[a][b] != color || gridInfo[a][b] != 0)
+				if (gridInfo[a][b] != 0)
 				{
 					return false;
 				}
@@ -91,7 +91,7 @@ bool isWay(int x0, int y0, int x1, int y1, int color)
 			{
 				if (a + b == right_top_temp)
 				{
-					if (gridInfo[a][b] != color || gridInfo[a][b] != 0)
+					if (gridInfo[a][b] != 0)
 					{
 						return false;
 					}
@@ -112,7 +112,7 @@ bool isWay(int x0, int y0, int x1, int y1, int color)
 			if (a + b == 2 * left_top_temp)
 			{
 				left_top_temp += 2;
-				if (gridInfo[a][b] != color || gridInfo[a][b] != 0)
+				if (gridInfo[a][b] != 0)
 				{
 					return false;
 				}
@@ -131,7 +131,7 @@ bool isWay(int x0, int y0, int x1, int y1, int color)
 		{
 			if (a + b == left_bottom_temp)
 			{
-				if (gridInfo[a][b] != color || gridInfo[a][b] != 0)
+				if (gridInfo[a][b] != 0)
 				{
 					return false;
 				}
