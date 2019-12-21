@@ -269,6 +269,11 @@ bool black_win(int x, int y)
 	int y1 = black[x++][y];
 	y = 0;
 
+	if(x == 4)
+	{
+		return;
+	}
+
 	if (gridInfo[x1 + 1][y1] != 0 && gridInfo[x1 - 1][y1] != 0 && gridInfo[x1][y1 - 1] != 0 && gridInfo[x1][y1 + 1] != 0 && gridInfo[x1-1][y1-1] != 0 && gridInfo[x1-1][y1+1] != 0 && gridInfo[x1+1][y1-1] != 0 && gridInfo[x1+1][y1+1] != 0)
 	{
 		black_win(x, y);
@@ -285,6 +290,11 @@ bool white_win(int x, int y)
 	int x1 = white[x][y++];
 	int y1 = white[x++][y];
 	y = 0;
+
+	if (x == 4)
+	{
+		return;
+	}
 
 	if (gridInfo[x1 + 1][y1] != 0 && gridInfo[x1 - 1][y1] != 0 && gridInfo[x1][y1 - 1] != 0 && gridInfo[x1][y1 + 1] != 0 && gridInfo[x1 - 1][y1 - 1] != 0 && gridInfo[x1 - 1][y1 + 1] != 0 && gridInfo[x1 + 1][y1 - 1] != 0 && gridInfo[x1 + 1][y1 + 1] != 0)
 	{
